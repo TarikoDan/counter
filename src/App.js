@@ -10,11 +10,8 @@ function App() {
         <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
         </header>
-        <div className='contain'>
-            <ViewBox/>
-        </div>
-        <footer className='footer'>gxbndfhn</footer>
-
+        <ViewBox/>
+        <footer className='footer'>Taras Danylyshyn</footer>
     </div>
   );
 }

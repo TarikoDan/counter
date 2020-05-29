@@ -1,6 +1,6 @@
 import React,{Component} from "react";
 
-export class Button extends Component{
+export class Button extends Component{ // не использовал эту компоненту
     constructor(props) {
         super(props);
         this.state = {
@@ -8,9 +8,10 @@ export class Button extends Component{
         };
     }
 
-
+    onClickkk = () => {
+        return this.state.count
+    }
     render() {
-        const {count} = this.state;
         const {value} = this.props;
         return (
             <button className='button'>{value}</button>
