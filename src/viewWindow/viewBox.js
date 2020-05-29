@@ -1,11 +1,11 @@
 import React, {Component} from "react";
 import {Button} from './button'
 
-console.log('bbb',Button.value); // не зрозумів як притягнути сюди значення Батонів,
+console.log(Button.value); // не зрозумів як притягнути сюди значення Батонів,
                                     // щоб вони змінювали Стейт Каунтера,
                                     // тому зробив все в одній компоненті
 
-const buttonValues = [-100, -10, -1, 1, 10, 100]
+const buttonValues = [-100, -10, -1, 1, 10, 100];
 
 export class ViewBox extends Component {
     state = {
@@ -34,7 +34,7 @@ export class ViewBox extends Component {
             alert('Count can"t be less than 0, select another value');
             this.setState({count : prevState.count})
         }
-        if ( !this.state.inputValue ) {
+        if ( !this.state.inputValue && this.state.inputValue !== 0) {
             alert('NaN');
             this.setState({inputValue: prevState.inputValue})
         }
