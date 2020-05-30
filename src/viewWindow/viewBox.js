@@ -1,9 +1,4 @@
 import React, {Component} from "react";
-import {Button} from './button'
-
-console.log(Button.value); // не зрозумів як притягнути сюди значення Батонів,
-                                    // щоб вони змінювали Стейт Каунтера,
-                                    // тому зробив все в одній компоненті
 
 const buttonValues = [-100, -10, -1, 1, 10, 100];
 
@@ -19,7 +14,7 @@ export class ViewBox extends Component {
     };
 
     input = (event) => {
-        const val = Number(event.target.value);
+        const val = event.target.value;
         console.log(val);
         this.setState({inputValue: val})
     };
@@ -33,10 +28,6 @@ export class ViewBox extends Component {
         if (this.state.count < 0) {
             alert('Count can"t be less than 0, select another value');
             this.setState({count : prevState.count})
-        }
-        if ( !this.state.inputValue && this.state.inputValue !== 0) {
-            alert('NaN');
-            this.setState({inputValue: prevState.inputValue})
         }
     }
 
@@ -54,8 +45,8 @@ export class ViewBox extends Component {
                         )
                     })}
                 </div>
-                <button onClick={this.changeCount}>cansel</button>
-                <input type='value'
+                <button onClick={this.changeCount}>cancel</button>
+                <input type='number'
                        className='button'
                        value={inputValue}
                        onChange={this.input}

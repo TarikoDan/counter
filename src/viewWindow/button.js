@@ -8,9 +8,6 @@ export class Button extends Component{ // не использовал эту к�
         };
     }
 
-    onClickkk = () => {
-        return this.state.count
-    }
     render() {
         const {value} = this.props;
         return (
