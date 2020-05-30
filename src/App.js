@@ -2,7 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import {ViewBox} from'./viewWindow/viewBox'
+import {ViewBox} from './Counter/viewBox'
 
 function App() {
   return (

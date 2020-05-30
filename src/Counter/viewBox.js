@@ -5,7 +5,7 @@ const buttonValues = [-100, -10, -1, 1, 10, 100];
 export class ViewBox extends Component {
     state = {
         count: 0,
-        inputValue: 0
+        inputValue: ''
     };
 
     changeCount = (event) => {
@@ -32,12 +32,12 @@ export class ViewBox extends Component {
     }
 
     render() {
-        const {count,inputValue} = this.state;
+        const { count,inputValue } = this.state;
         return (
             <div className='contain'>
-                <div className='viewBox'>{count}</div>
+                <div className='viewBox'>{ count }</div>
                 <div className='buttonsDiv'>
-                    {buttonValues.map((value,id) => {
+                    { buttonValues.map((value,id) => {
                         return (
                             <button key={id} className='button' value={value} onClick={this.changeCount}>
                                 {value < 0 ? value : "+" + value}
@@ -48,7 +48,8 @@ export class ViewBox extends Component {
                 <button onClick={this.changeCount}>cancel</button>
                 <input type='number'
                        className='button'
-                       value={inputValue}
+                       placeholder='Enter to Submit'
+                       value={ inputValue }
                        onChange={this.input}
                        onKeyPress={this.inputSubmit}/>
             </div>

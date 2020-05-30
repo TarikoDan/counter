@@ -65,4 +65,8 @@
   font-size: 1rem;
   border: 5px solid #505b68;
   border-radius: 10px;
+  transition: 0.5s;
+}
+.button:hover {
+  opacity: 75%;
 }
