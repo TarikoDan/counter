@@ -1,4 +1,6 @@
 import React, {Component} from "react";
+import {Button} from "./button";
+// import {Input} from "./input";
 
 const buttonValues = [-100, -10, -1, 1, 10, 100];
 
@@ -10,18 +12,18 @@ export class ViewBox extends Component {
 
     changeCount = (event) => {
         const val = Number(event.target.value);
-        this.setState({ count: val || val == 0 ? this.state.count + val : 0 }) // умова для того щоб count обнулювався тільки при кліку на cancel
+        this.setState({ count: val || val === 0 ? this.state.count + val : 0 }) // умова для того щоб count обнулювався тільки при кліку на cancel
                                                                                     // не включаючи порожній(або з нулем) input.
     };
 
     input = (event) => {
         const val = event.target.value;
-        console.log(val);
         this.setState({inputValue: val})
     };
     inputSubmit = (event) => {
         if (event.key === 'Enter') {
-            this.changeCount(event)
+            this.changeCount(event);
+            this.setState({inputValue: ''})
         }
     };
 
@@ -38,21 +40,21 @@ export class ViewBox extends Component {
             <div className='contain'>
                 <div className='viewBox'>{ count }</div>
                 <div className='buttonsDiv'>
-                    { buttonValues.map((value,id) => {
+                { buttonValues.map((value,id) => {
                         return (
-                            <button key={id} className='button' value={value} onClick={this.changeCount}>
-                                {value < 0 ? value : "+" + value}
-                            </button>
+                            <Button key={id} value={value} onClick ={this.changeCount}/>
                         )
                     })}
                 </div>
-                <button value='cancel' onClick={this.changeCount}>cancel</button>
+                <Button value='cancel' onClick={this.changeCount}/>
                 <input type='number'
                        className='button'
                        placeholder='Enter to Submit'
                        value={ inputValue }
                        onChange={this.input}
                        onKeyPress={this.inputSubmit}/>
+
+               {/*<Input onEnter={this.inputSubmit}/>*/}
             </div>
         )
     }

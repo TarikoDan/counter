@@ -68,5 +68,6 @@
   transition: 0.5s;
 }
 .button:hover {
-  opacity: 75%;
+    /*opacity: 75%;*/
+    filter: invert(0.75);
 }
