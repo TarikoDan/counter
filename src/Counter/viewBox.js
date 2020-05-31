@@ -10,7 +10,8 @@ export class ViewBox extends Component {
 
     changeCount = (event) => {
         const val = Number(event.target.value);
-        this.setState({count: val ? this.state.count + val : 0})
+        this.setState({ count: val || val == 0 ? this.state.count + val : 0 }) // умова для того щоб count обнулювався тільки при кліку на cancel
+                                                                                    // не включаючи порожній(або з нулем) input.
     };
 
     input = (event) => {
@@ -45,7 +46,7 @@ export class ViewBox extends Component {
                         )
                     })}
                 </div>
-                <button onClick={this.changeCount}>cancel</button>
+                <button value='cancel' onClick={this.changeCount}>cancel</button>
                 <input type='number'
                        className='button'
                        placeholder='Enter to Submit'
